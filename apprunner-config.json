@@ -1,0 +1,40 @@
+{
+  "ServiceName": "starbucks-clone-app",
+  "SourceConfiguration": {
+    "AuthenticationConfiguration": {
+      "ConnectionArn": "GITHUB_CONNECTION_ARN_PLACEHOLDER"
+    },
+    "AutoDeploymentsEnabled": true,
+    "CodeRepository": {
+      "RepositoryUrl": "https://github.com/nehap86/starbucks-clone",
+      "SourceCodeVersion": {
+        "Type": "BRANCH",
+        "Value": "main"
+      },
+      "CodeConfiguration": {
+        "ConfigurationSource": "API",
+        "CodeConfigurationValues": {
+          "Runtime": "NODEJS_18",
+          "BuildCommand": "npm install && npm run build",
+          "StartCommand": "npx serve -s dist -l tcp://0.0.0.0:8080",
+          "Port": "8080",
+          "RuntimeEnvironmentVariables": {
+            "NODE_ENV": "production"
+          }
+        }
+      }
+    }
+  },
+  "InstanceConfiguration": {
+    "Cpu": "0.25 vCPU",
+    "Memory": "0.5 GB"
+  },
+  "HealthCheckConfiguration": {
+    "Protocol": "HTTP",
+    "Path": "/",
+    "Interval": 10,
+    "Timeout": 5,
+    "HealthyThreshold": 1,
+    "UnhealthyThreshold": 5
+  }
+}
