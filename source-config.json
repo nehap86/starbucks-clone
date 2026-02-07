@@ -1,0 +1,22 @@
+{
+    "CodeRepository": {
+        "RepositoryUrl": "https://github.com/nehap86/starbucks-clone",
+        "SourceCodeVersion": {
+            "Type": "BRANCH",
+            "Value": "main"
+        },
+        "CodeConfiguration": {
+            "ConfigurationSource": "API",
+            "CodeConfigurationValues": {
+                "Runtime": "NODEJS_22",
+                "BuildCommand": "npm install && npm run build",
+                "StartCommand": "npx serve -s dist -l 3000",
+                "Port": "3000"
+            }
+        }
+    },
+    "AutoDeploymentsEnabled": true,
+    "AuthenticationConfiguration": {
+        "ConnectionArn": "arn:aws:apprunner:us-east-1:636058550715:connection/github-starbucks/16b63a78cb58402ba595b88d01b468f0"
+    }
+}
